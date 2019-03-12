@@ -28,12 +28,12 @@ import Student from "./entities/student";
       age: 20
     }
     const studentEntity = orm.getEntity("Student");
-    // const addStudent = await studentEntity.save(student);
+    const addStudent = await studentEntity.save(student);
     const count = await studentEntity.count();
     const findOneStudent = await studentEntity.findOne({where: {firstname: "zizou", lastname: "tabarnak"}, attributes: []});
+    const students = await studentEntity.findAll();
     // console.log(`There are ${count} student(s)`);
     // console.log(findOneStudent);
-    const students = await studentEntity.findAll();
     // console.log("Current students:\n%o", students);
 
   } catch (err) {
